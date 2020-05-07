@@ -1,0 +1,24 @@
+<apex:page controller="SearchOpportunityController" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="Search Opportunity">
+            <apex:pageBlockSection>
+                <apex:selectList value="{!searchField}">
+                    <apex:selectOption itemValue="Name" itemLabel="Name"></apex:selectOption>
+                    <apex:selectOption itemValue="StageName" itemLabel="Stage Name"></apex:selectOption>
+                    <apex:selectOption itemValue="Account" itemLabel="Account"></apex:selectOption>
+                </apex:selectList>
+                <apex:inputText value="{!searchText}" label="Enter search text"></apex:inputText>
+            </apex:pageBlockSection>
+
+            <apex:commandButton value="Search" action="{!searchOpportunity}" reRender="OpportunityTable"></apex:commandButton>
+
+            <apex:pageBlockSection title="Existing Opportunities" id="OpportunityTable">
+                <apex:pageBlockTable value="{!opportunities}" var="item">
+                    <apex:column value="{!item.Name}"></apex:column>
+                    <apex:column value="{!item.Account}"></apex:column>
+                    <apex:column value="{!item.StageName}"></apex:column>
+                </apex:pageBlockTable>
+            </apex:pageBlockSection>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>

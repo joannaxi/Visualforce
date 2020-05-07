@@ -1,0 +1,8 @@
+<apex:page controller="CreateNewContactsController" lightningStylesheets="true">
+    <apex:form>
+        <apex:pageBlock title="Create New Contact">
+            <apex:inputField value="{!contact.LastName}"></apex:inputField>
+            <apex:commandButton value="Create Contact" action="{!insertContact}"></apex:commandButton>
+        </apex:pageBlock>
+    </apex:form>
+</apex:page>
